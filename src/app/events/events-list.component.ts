@@ -6,7 +6,7 @@ import { Component } from '@angular/core'
         <div>
             <h1>Upcoming Sporting Events</h1>
             <hr>
-            <event-thumbnail #thumbnail *ngFor="let event of events" [event]="event"></event-thumbnail>
+            <event-thumbnail (eventClick)="handleEventClicked($event)" #thumbnail *ngFor="let event of events" [event]="event"></event-thumbnail>
         </div>
     ` 
 })
@@ -39,4 +39,8 @@ export class EventsListComponent {
             }
         }
     ]
+
+    handleEventClicked(data:any) {
+        console.log('received:' + data);
+    }
 }
